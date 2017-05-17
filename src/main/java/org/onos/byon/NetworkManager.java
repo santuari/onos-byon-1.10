@@ -15,7 +15,6 @@
  */
 package org.onos.byon;
 
-import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Iterables;
 import org.apache.felix.scr.annotations.Activate;
 import org.apache.felix.scr.annotations.Component;
