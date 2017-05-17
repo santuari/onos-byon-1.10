@@ -21,7 +21,6 @@ import org.junit.Before;
 import org.junit.Test;
 import org.onlab.packet.MacAddress;
 import org.onosproject.TestApplicationId;
-import org.onosproject.core.IdGenerator;
 import org.onosproject.net.HostId;
 import org.onosproject.net.intent.HostToHostIntent;
 import org.onosproject.net.intent.Intent;
@@ -38,19 +37,18 @@ import static org.junit.Assert.*;
 public class NetworkManagerTest {
 
     protected NetworkManager manager;
-    protected IdGenerator idGenerator = new MockIdGenerator();
 
     @Before
     public void setUp() {
         manager = new NetworkManager();
         manager.appId = new TestApplicationId("network-test");
-        Intent.bindIdGenerator(idGenerator);
+        MockIdGenerator.cleanBind();
 
     }
 
     @After
     public void tearDown() {
-        Intent.unbindIdGenerator(idGenerator);
+        MockIdGenerator.unbind();
     }
 
     public static final String NETWORK = "test";
